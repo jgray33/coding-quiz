@@ -1,0 +1,45 @@
+* {
+  font-family: "lato";
+}
+
+:root {
+  --teal: #3a5154;
+  --cream: #b9b0b2;
+  --grey: #929aa2;
+  --dark: #1d2625;
+  --orange: #b7673c;
+}
+
+.timer {
+    display: flex;
+    float: right;
+}
+
+nav,
+footer {
+  background-color: var(--dark);
+  color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.outer-box {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1%;
+}
+
+.start-quiz-box,
+.instruction-box {
+  position: relative;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+button {
+  position: relative;
+  display: flex;
+  margin: auto;
+  margin-top: 2%;
+}
