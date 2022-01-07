@@ -7,41 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="reset css" href="assets\reset.css" />
     <link rel="stylesheet" href="assets/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
-      <!-- Top bar -->
+    <!-- Top bar -->
     <nav>
-      <h1> Coding Quiz </h1>
+      <h1>Coding Quiz</h1>
     </nav>
 
     <!-- High score and timer -->
     <section class="high-score">
-        <p>High Score<p>
-        <p class="timer"> Timer</p>
+      <p>High Score</p>
+      <p></p>
+      <p class="timer">Timer</p>
     </section>
 
     <!-- Quiz box -->
-    <section = class="outer-box">
+    <section ="class" ="outer-box">
       <div class="quiz-box">
-          <div class="question"> 
-        <h2 id="questions">Welcome to the coding quiz</h2>
+
+        <!-- Questions -->
+        <div class="question">
+          <h2 id="questions">Welcome to the coding quiz</h2>
         </div>
-                
-        <div class="options-box">You have one minute to answer as many
-            questions as you can</div>
-        <button class="submit-bttn" id="submit-button">Start</button>
-        <div class="results"> Results </div>
         
+        <!-- Options  -->
+        <div = class="instructions"> You have one minute to answer as many questions as you can</div>
+        <div class="options-box">
+                  <button class="option" id="op1"> Option 1 </button>
+                  <button class="option" id="op2"> Option 2 </button>
+                  <button class="option" id="op3"> Option 3 </button>
+                  <button class="option" id="op4"> Option 4 </button>
+        </div>
+
+        <button class="submit-bttn" id="submit-button">Start</button>
+
+        <div class="results">Results</div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer> Made by JG </footer>
+    <footer>Made by JG</footer>
   </body>
-  
+
   <script src="assets/style.js"></script>
   <script src="assets/questions.js"></script>
 </html>

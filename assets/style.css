@@ -15,6 +15,13 @@
     float: right;
 }
 
+.option { 
+    /* visibility: hidden; */ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    } 
+
 nav,
 footer {
   background-color: var(--dark);
@@ -39,12 +46,23 @@ footer {
   padding: 1%;
 }
 
+.options-box {
+    position: relative;
+}
+
+.options-box {
+    display: flex;
+    align-items: center;
+}
+
 button {
   position: relative;
   display: flex;
   margin: auto;
   margin-top: 2%;
 }
+
+
 
 .results {
     visibility: hidden;

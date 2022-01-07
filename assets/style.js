@@ -36,6 +36,7 @@ const myQuestions = [
         },
         correctAnswer: "a"
     },
+      
 ]
 
 // Start button changes to submit button on click
