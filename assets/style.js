@@ -1,9 +1,40 @@
 console.log("is this connected")
 
+const submitBttn = document.getElementById("submit-button")
+
+
+// Timer
+var timerEl =document.querySelector(".timer")
+
+var secondsLeft = 100
+
+function setTimer() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timerEl.textContent = secondsLeft;
+    
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+            console.log("Timer has ended")
+        }
+    
+    }, 1000);
+}
+
+// When submit button is clicked, the timer will start
+submitBttn.addEventListener("click", () => {
+    setTimer();
+})
+
+// When the start button is clicked, it will change to a submit button
+const changeBttn = () => submitBttn.innerHTML = "Submit"
+
+
+
+
 // const questionBox = 
 // const optionsBox = 
-const submitBttn = document.getElementById("submit-button")
-console.log(submitBttn)
+
 
 const myQuestions = [
     {
@@ -39,9 +70,7 @@ const myQuestions = [
       
 ]
 
-// Start button changes to submit button on click
-const changeBttn = () => submitBttn.innerHTML = "Submit"
-console.log(changeBttn)
+
 
 
 // function showQuestions() {
