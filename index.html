@@ -43,7 +43,7 @@
         <!-- Options  -->
         <div = class="instructions" id="questionInstr"> You have one minute to answer as many questions as you can</div>
         <div class="options-box">
-          <ul>
+          <ul id = "all-options">
                   <button class="option" id="op1" onclick="checkAnswer()"> Option 1 </button>
                   <button class="option" id="op2" onclick="checkAnswer()"> Option 2 </button>
                   <button class="option" id="op3" onclick="checkAnswer()"> Option 3 </button>
@@ -54,7 +54,8 @@
 
         <button class="submit-bttn" id="submit-button">Start</button>
 
-        <div class="results">Results</div>
+        <div class="results" id="correct-result">Correct</div>
+        <div class="results" id="incorrect-result">Incorrect</div>
       </div>
     </section>
 

@@ -6,9 +6,14 @@ let choiceB = document.getElementById("op2");
 let choiceC = document.getElementById("op3");
 let choiceD = document.getElementById("op4");
 let title = document.getElementById("title");
+let options = document.getElementById("all-options")
 var timerEl = document.querySelector(".timer");
 let questionInstr = document.getElementById("questionInstr");
 let CurrentScore = document.getElementById("score");
+let correctResult = document.getElementById("correct-result");
+let incorrectResult = document.getElementById("incorrect-result")
+
+
 
 // Timer starts at 100
 
@@ -39,13 +44,28 @@ const changeBttn = () => submitBttn.classList.add("invisible")
 // Removes the title
 const removeTitle = () => title.classList.add("invisible")
 
+// Displays the options
+const displayOptionsBox = () => options.classList.add("visible")
+
+// Removes the options boz
+const removeOptionsBox = () => options.classList.add("invisible")
+
+// Displays correct if right answer is chosen
+const displayCorrectResult = () => correctResult.classList.add("visible")
+
+const displayIncorrectResult = () => incorrectResult.classList.add("visible")
+
+
+
 // When the start button is clicked, the first question appears, 
 // the title is removed and the start button is removed
+// And the options appear
 submitBttn.addEventListener("click", () => {
   displayQuestion();
   removeTitle();
   changeBttn();
-});
+  displayOptionsBox();
+  });
 
 
 // List of questions
@@ -81,6 +101,7 @@ let questionsList = [
 let lastQuestionIndex = questionsList.length - 1;
 let runningQuestionsIndex = 0;
 
+// Identifies which option the user has clicked
 let userAnswer = ""
 
 var choiceAclick = false
@@ -112,7 +133,6 @@ choiceD.addEventListener("click", function(){
 })
 
 
-
 // Call the questions
 function displayQuestion() {
   let q = questionsList[runningQuestionsIndex];
@@ -121,27 +141,34 @@ function displayQuestion() {
   choiceB.textContent = q.b;
   choiceC.textContent = q.c;
   choiceD.textContent = q.d;
-        }
+          }
  
 
 // Update the score depending if the user answer is the same as correct answer
  let score = 0;
 function checkAnswer() {
   if (questionsList[runningQuestionsIndex].correctAnswer === userAnswer) {
-    score++;
-    
-  } else {
+    score++; 
+    console.log("Correct")
+          } else {
     score--;
+    
   }
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
-  }
-  console.log("The current score is " + score);
-  CurrentScore.innerHTML = score;
+      } 
+if (runningQuestionsIndex === lastQuestionIndex) {
+    console.log("quiz has finished")
+    }
+
+function quizFinished () {
+    removeOptionsBox();
 }
-
-
+   
+console.log("The current score is " + score);
+CurrentScore.innerHTML = score;
+}
 
 // 1. The user presses start quiz
 //  a. The timer begins to count down from 100

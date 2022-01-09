@@ -10,6 +10,14 @@
   --orange: #b7673c;
 }
 
+.options-box {
+  visibility: hidden;
+}
+
+.results {
+  visibility: hidden;
+}
+
 .timer {
     display: flex;
     float: right;
@@ -17,6 +25,10 @@
 
 .invisible {
   visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .option { 
@@ -78,6 +90,3 @@ ul {
   }
 
 
-.results {
-    visibility: hidden;
-}
