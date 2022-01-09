@@ -6,12 +6,16 @@ let choiceB = document.getElementById("op2");
 let choiceC = document.getElementById("op3");
 let choiceD = document.getElementById("op4");
 let questionInstr = document.getElementById("questionInstr");
-
+let CurrentScore = document.getElementById("score");
 
 // Timer
 var timerEl = document.querySelector(".timer");
 
 var secondsLeft = 100;
+
+function quizFinished() {
+
+}
 
 function setTimer() {
   var timerInterval = setInterval(function () {
@@ -21,6 +25,7 @@ function setTimer() {
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       console.log("Timer has ended");
+      quizFinished()
     }
   }, 1000);
 }
@@ -30,8 +35,8 @@ submitBttn.addEventListener("click", () => {
   setTimer();
 });
 
-// When the start button is clicked, it will disappear 
-const changeBttn = () => (submitBttn.classList.add("invisible"))
+// When the start button is clicked, it will disappear
+const changeBttn = () => submitBttn.classList.add("invisible");
 
 // When the start button is clicked, the first question appears
 submitBttn.addEventListener("click", () => {
@@ -71,34 +76,65 @@ let questionsList = [
 let lastQuestionIndex = questionsList.length - 1;
 let runningQuestionsIndex = 0;
 
+let userAnswer = ""
+
+var choiceAclick = false
+choiceA.addEventListener("click", function(){
+    choiceAclick = true
+    userAnswer = "a"
+    console.log("user has selected " + userAnswer)
+})
+
+var choiceBclick = false
+choiceB.addEventListener("click", function(){
+    choiceBclick = true
+    userAnswer = "b"
+    console.log("user has selected " + userAnswer)
+})
+
+var choiceCclick = false
+choiceC.addEventListener("click", function(){
+    choiceCclick = true
+    userAnswer = "c"
+    console.log("user has selected " + userAnswer)
+})
+
+var choiceDclick = false
+choiceD.addEventListener("click", function(){
+    choiceDclick = true
+    userAnswer = "d"
+    console.log("user has selected " + userAnswer)
+})
+
+
+
+
+
 // Call the questions
 function displayQuestion() {
   let q = questionsList[runningQuestionsIndex];
   questionInstr.innerHTML = "<p>" + q.question + "</p>";
-  choiceA.textContent =  q.a;
+  choiceA.textContent = q.a;
   choiceB.textContent = q.b;
   choiceC.textContent = q.c;
   choiceD.textContent = q.d;
         }
+ 
 
-function checkAnswer (answer) {
-    if (questionsList[runningQuestionsIndex].correctAnswer == answer) {
-score++
-    } else {
-        score--
-    }
-    if(runningQuestionsIndex < lastQuestionIndex) {
-        runningQuestionsIndex++
-        displayQuestion()
-
-    }
+ let score = 0;
+function checkAnswer() {
+  if (questionsList[runningQuestionsIndex].correctAnswer === userAnswer) {
+    score++;
+  } else {
+    score--;
+  }
+  if (runningQuestionsIndex < lastQuestionIndex) {
+    runningQuestionsIndex++;
+    displayQuestion();
+  }
+  console.log("The current score is " + score);
+  CurrentScore.innerHTML = score;
 }
-    
-
-
-// function showQuestions() {
-
-// }
 
 submitBttn.addEventListener("click", () => {
   changeBttn();
