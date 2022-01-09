@@ -35,7 +35,7 @@ const changeBttn = () => (submitBttn.classList.add("invisible"))
 
 // When the start button is clicked, the first question appears
 submitBttn.addEventListener("click", () => {
-  renderQuestion();
+  displayQuestion();
 });
 
 // List of questions
@@ -72,16 +72,29 @@ let lastQuestionIndex = questionsList.length - 1;
 let runningQuestionsIndex = 0;
 
 // Call the questions
-function renderQuestion() {
+function displayQuestion() {
   let q = questionsList[runningQuestionsIndex];
   questionInstr.innerHTML = "<p>" + q.question + "</p>";
   choiceA.textContent =  q.a;
   choiceB.textContent = q.b;
   choiceC.textContent = q.c;
   choiceD.textContent = q.d;
-  console.log(q);
-  console.log(choiceA);
+        }
+
+function checkAnswer (answer) {
+    if (questionsList[runningQuestionsIndex].correctAnswer == answer) {
+score++
+    } else {
+        score--
+    }
+    if(runningQuestionsIndex < lastQuestionIndex) {
+        runningQuestionsIndex++
+        displayQuestion()
+
+    }
 }
+    
+
 
 // function showQuestions() {
 
