@@ -15,6 +15,10 @@
     float: right;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .option { 
     /* visibility: hidden; */ 
     display: flex;
