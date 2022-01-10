@@ -14,10 +14,9 @@ let correctResult = document.getElementById("correct-result");
 let incorrectResult = document.getElementById("incorrect-result")
 
 
+// Timer starts at 60
 
-// Timer starts at 100
-
-var secondsLeft = 100;
+var secondsLeft = 60;
 
 // Set timer function
 function setTimer() {
@@ -38,6 +37,10 @@ submitBttn.addEventListener("click", () => {
   setTimer();
 });
 
+function quizFinished () {
+  console.log("The quiz has finished")
+}
+
 // Removes the start button
 const changeBttn = () => submitBttn.classList.add("invisible")
 
@@ -54,8 +57,6 @@ const removeOptionsBox = () => options.classList.add("invisible")
 const displayCorrectResult = () => correctResult.classList.add("visible")
 
 const displayIncorrectResult = () => incorrectResult.classList.add("visible")
-
-
 
 // When the start button is clicked, the first question appears, 
 // the title is removed and the start button is removed
@@ -75,13 +76,13 @@ let questionsList = [
     a: "<scripting>",
     b: "<js>",
     c: "<javascript>",
-    d: "<script>",
+    d: "Correct Answer",
     correctAnswer: "d",
   },
 
   {
     question: "What is the correct place to insert a JavaScript?",
-    a: "Either the <head> section or the <body> section",
+    a: "Correct answer",
     b: "The <p> section",
     c: "The <body> section",
     d: "In the CSS worksheet",
@@ -90,11 +91,38 @@ let questionsList = [
 
   {
     question: "How do you write 'Hello world' in an alert box?",
-    a: "alert('Hello World')",
+    a: "Correct",
     b: "msg('Hello World')",
     c: "msgBox('Hello World')",
     d: "alertBox('Hello World')",
     correctAnswer: "a",
+  },
+
+  {
+    question: "Question 4",
+    a: "Option 1",
+    b: "Option 2",
+    c: "Option 3",
+    d: "Correct",
+    correctAnswer: "d",
+  },
+
+  {
+    question: "Question 5",
+    a: "Option 1",
+    b: "Option 2",
+    c: "Correct",
+    d: "Option 4",
+    correctAnswer: "c",
+  },
+
+  {
+    question: "Question 6",
+    a: "Option 1",
+    b: "Correct",
+    c: "Option 3",
+    d: "Option 4",
+    correctAnswer: "b",
   },
 ];
 
@@ -132,6 +160,15 @@ choiceD.addEventListener("click", function(){
     console.log("user has selected " + userAnswer)
 })
 
+if (choiceAclick = true) {
+  userAnswer = "a"
+} else if (choiceBclick = true) {
+  userAnswer = "b"
+} else if (choiceCclick = true) {
+  userAnswer = "c"
+} else if (choiceDclick = true) {
+  userAnswer = "d"
+}
 
 // Call the questions
 function displayQuestion() {
@@ -142,6 +179,8 @@ function displayQuestion() {
   choiceC.textContent = q.c;
   choiceD.textContent = q.d;
           }
+
+  
  
 
 // Update the score depending if the user answer is the same as correct answer
@@ -151,8 +190,9 @@ function checkAnswer() {
     score++; 
     console.log("Correct")
           } else {
+      console.log("incorrect")
     score--;
-    
+        
   }
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
@@ -162,10 +202,7 @@ if (runningQuestionsIndex === lastQuestionIndex) {
     console.log("quiz has finished")
     }
 
-function quizFinished () {
-    removeOptionsBox();
-}
-   
+
 console.log("The current score is " + score);
 CurrentScore.innerHTML = score;
 }
