@@ -134,39 +134,39 @@ let userAnswer = ""
 
 var choiceAclick = false
 choiceA.addEventListener("click", function(){
-    choiceAclick = true
+    choiceAclick === true
     userAnswer = "a"
     console.log("user has selected " + userAnswer)
 })
 
 var choiceBclick = false
 choiceB.addEventListener("click", function(){
-    choiceBclick = true
+    choiceBclick === true
     userAnswer = "b"
     console.log("user has selected " + userAnswer)
 })
 
 var choiceCclick = false
 choiceC.addEventListener("click", function(){
-    choiceCclick = true
+    choiceCclick === true
     userAnswer = "c"
     console.log("user has selected " + userAnswer)
 })
 
 var choiceDclick = false
 choiceD.addEventListener("click", function(){
-    choiceDclick = true
+    choiceDclick === true
     userAnswer = "d"
     console.log("user has selected " + userAnswer)
   })
 
-if (choiceAclick = true) {
+if (choiceAclick === true) {
   userAnswer = "a"
-} else if (choiceBclick = true) {
+} else if (choiceBclick === true) {
   userAnswer = "b"
-} else if (choiceCclick = true) {
+} else if (choiceCclick === true) {
   userAnswer = "c"
-} else if (choiceDclick = true) {
+} else if (choiceDclick === true) {
   userAnswer = "d"
 }
 
@@ -186,6 +186,9 @@ var rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
 // Update the score depending if the user answer is the same as correct answer
  let score = 0;
 function checkAnswer() {
+  rightAnswer = null
+  correctResult = null
+  userAnswer = null
   console.log("The correct answer is " + rightAnswer)
     if (rightAnswer === userAnswer) {
     score++; 
