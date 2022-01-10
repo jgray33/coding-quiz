@@ -158,7 +158,7 @@ choiceD.addEventListener("click", function(){
     choiceDclick = true
     userAnswer = "d"
     console.log("user has selected " + userAnswer)
-})
+  })
 
 if (choiceAclick = true) {
   userAnswer = "a"
@@ -180,20 +180,22 @@ function displayQuestion() {
   choiceD.textContent = q.d;
           }
 
-  
- 
+var rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
+
 
 // Update the score depending if the user answer is the same as correct answer
  let score = 0;
 function checkAnswer() {
-  if (questionsList[runningQuestionsIndex].correctAnswer === userAnswer) {
+  console.log("The correct answer is " + rightAnswer)
+    if (rightAnswer === userAnswer) {
     score++; 
-    console.log("Correct")
-          } else {
-      console.log("incorrect")
+        console.log("The user has selected the correct")
+          } else if (rightAnswer !== userAnswer) {
+      console.log("The user has selected the incorrect answer")
     score--;
-        
-  }
+          }
+
+    console.log("The running question index is " + runningQuestionsIndex)
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
