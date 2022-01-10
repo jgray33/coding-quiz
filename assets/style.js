@@ -186,10 +186,7 @@ var rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
 // Update the score depending if the user answer is the same as correct answer
  let score = 0;
 function checkAnswer() {
-  rightAnswer = null
-  correctResult = null
-  userAnswer = null
-  console.log("The correct answer is " + rightAnswer)
+    console.log("The correct answer is " + rightAnswer)
     if (rightAnswer === userAnswer) {
     score++; 
         console.log("The user has selected the correct")
