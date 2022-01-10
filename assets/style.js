@@ -72,7 +72,7 @@ submitBttn.addEventListener("click", () => {
 // List of questions
 let questionsList = [
   {
-    question: "Inside which HTML element do we put the JavaScript?",
+    question: "Questions 1",
     a: "<scripting>",
     b: "<js>",
     c: "<javascript>",
@@ -81,7 +81,7 @@ let questionsList = [
   },
 
   {
-    question: "What is the correct place to insert a JavaScript?",
+    question: "Question 2",
     a: "Correct answer",
     b: "The <p> section",
     c: "The <body> section",
@@ -90,7 +90,7 @@ let questionsList = [
   },
 
   {
-    question: "How do you write 'Hello world' in an alert box?",
+    question: "Question 3",
     a: "Correct",
     b: "msg('Hello World')",
     c: "msgBox('Hello World')",
