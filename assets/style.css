@@ -14,7 +14,8 @@
   visibility: hidden;
 }
 
-.results {
+#correct-result,
+#incorrect-result {
   visibility: hidden;
 }
 
@@ -43,7 +44,6 @@ h2 {
   text-align: center;
 }
 
-
 nav,
 footer {
   background-color: var(--dark);
@@ -60,7 +60,7 @@ footer {
 
 .question,
 .options-box,
-.results {
+{
   position: relative;
   display: flex;
   margin: auto;
@@ -89,4 +89,8 @@ ul {
      float: left;
   }
 
+
+#submit-score-form {
+  
+}
 

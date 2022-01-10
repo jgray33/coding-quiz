@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Coding Quiz</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="reset css" href="assets\reset.css" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
 
-  <body>
-    <!-- Top bar -->
-    <nav>
-      <h1>Coding Quiz</h1>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <title>Coding Quiz</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="reset css" href="assets\reset.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
 
-    <!-- High score and timer -->
-    <section class="high-score">
-      <p id="score"> Your score: </p>
-      <p></p>
-      <!-- Timer -->
-      <p class="timer">Timer</p>
-    </section>
+<body>
+  <!-- Top bar -->
+  <nav>
+    <h1>Coding Quiz</h1>
+  </nav>
 
-    <!-- Quiz box -->
-    <section ="class" ="outer-box">
-      <div class="quiz-box">
+  <!-- High score and timer -->
+  <section class="high-score">
+    <p id="score"> Your score: </p>
+    <p></p>
+    <!-- Timer -->
+    <p class="timer">Timer</p>
+  </section>
 
-        <!-- Question -->
-        <div class="question">
-          <h2 id="title">Welcome to the coding quiz</h2>
-        </div>
-        
-        <!-- Options  -->
-        <div = class="instructions" id="questionInstr"> You have one minute to answer as many questions as you can</div>
-        <div class="options-box">
-          <ul id = "all-options">
-                  <button class="option" id="op1" onclick="checkAnswer()"> Option 1 </button>
-                  <button class="option" id="op2" onclick="checkAnswer()"> Option 2 </button>
-                  <button class="option" id="op3" onclick="checkAnswer()"> Option 3 </button>
-                  <button class="option" id="op4" onclick="checkAnswer()"> Option 4 </button>
-                  </ul>
-                  
-        </div>
+  <!-- Quiz box -->
+  <section class="outer-box">
+    <div class="quiz-box">
 
-        <button class="submit-bttn" id="submit-button">Start</button>
-
-        <div class="results" id="correct-result">Correct</div>
-        <div class="results" id="incorrect-result">Incorrect</div>
+      <!-- Question -->
+      <div class="question">
+        <h2 id="title">Welcome to the coding quiz</h2>
       </div>
+
+      <!-- Options  -->
+      <div=class="instructions" id="questionInstr"> You have one minute to answer as many questions as you can</div>
+
+         <div class="options-box">
+        <ul id="all-options">
+          <button class="option" id="op1" onclick="checkAnswer()"> Option 1 </button>
+          <button class="option" id="op2" onclick="checkAnswer()"> Option 2 </button>
+          <button class="option" id="op3" onclick="checkAnswer()"> Option 3 </button>
+          <button class="option" id="op4" onclick="checkAnswer()"> Option 4 </button>
+        </ul>
+              </div>
+
+             </div id="start-container">
+    <button class="submit-bttn" id="submit-button">Start</button>
+    </div>
+
+    <div id="result-container">
+      <div class="results" id="correct-result" >Correct</div>
+      <div class="results" id="incorrect-result">Incorrect</div>
+    </div>
+
     </section>
 
-    <!-- Footer -->
-    <footer>Made by JG</footer>
-  </body>
+  <!-- Footer -->
+  <footer>Made by JG</footer>
+</body>
 
-  <script src="assets/style.js"></script>
-  </html>
+<script src="assets/style.js"></script>
+
+</html>

@@ -14,6 +14,12 @@ let correctResult = document.getElementById("correct-result");
 let incorrectResult = document.getElementById("incorrect-result")
 
 
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+console.log(highScores)
+
+const correctBonus = 10;
+const maxQuestions = 6
+
 // Timer starts at 60
 
 var secondsLeft = 60;
@@ -27,7 +33,7 @@ function setTimer() {
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       console.log("Timer has ended");
-      quizFinished()
+      return window.location.assign("/end.html")
     }
   }, 1000);
 }
@@ -37,7 +43,7 @@ submitBttn.addEventListener("click", () => {
   setTimer();
 });
 
-function quizFinished () {
+function quizFinished() {
   console.log("The quiz has finished")
 }
 
@@ -50,12 +56,13 @@ const removeTitle = () => title.classList.add("invisible")
 // Displays the options
 const displayOptionsBox = () => options.classList.add("visible")
 
-// Removes the options boz
+// Removes the options box
 const removeOptionsBox = () => options.classList.add("invisible")
 
-// Displays correct if right answer is chosen
+// Display correct 
 const displayCorrectResult = () => correctResult.classList.add("visible")
 
+// Display incorrect 
 const displayIncorrectResult = () => incorrectResult.classList.add("visible")
 
 // When the start button is clicked, the first question appears, 
@@ -66,13 +73,13 @@ submitBttn.addEventListener("click", () => {
   removeTitle();
   changeBttn();
   displayOptionsBox();
-  });
+        });
 
 
 // List of questions
 let questionsList = [
   {
-    question: "Questions 1",
+    question: "Question 1",
     a: "<scripting>",
     b: "<js>",
     c: "<javascript>",
@@ -126,39 +133,36 @@ let questionsList = [
   },
 ];
 
-let lastQuestionIndex = questionsList.length - 1;
-let runningQuestionsIndex = 0;
-
 // Identifies which option the user has clicked
 let userAnswer = ""
 
 var choiceAclick = false
-choiceA.addEventListener("click", function(){
-    choiceAclick === true
-    userAnswer = "a"
-    console.log("user has selected " + userAnswer)
+choiceA.addEventListener("click", function () {
+  choiceAclick === true
+  userAnswer = "a"
+  console.log("user has selected " + userAnswer)
 })
 
 var choiceBclick = false
-choiceB.addEventListener("click", function(){
-    choiceBclick === true
-    userAnswer = "b"
-    console.log("user has selected " + userAnswer)
+choiceB.addEventListener("click", function () {
+  choiceBclick === true
+  userAnswer = "b"
+  console.log("user has selected " + userAnswer)
 })
 
 var choiceCclick = false
-choiceC.addEventListener("click", function(){
-    choiceCclick === true
-    userAnswer = "c"
-    console.log("user has selected " + userAnswer)
+choiceC.addEventListener("click", function () {
+  choiceCclick === true
+  userAnswer = "c"
+  console.log("user has selected " + userAnswer)
 })
 
 var choiceDclick = false
-choiceD.addEventListener("click", function(){
-    choiceDclick === true
-    userAnswer = "d"
-    console.log("user has selected " + userAnswer)
-  })
+choiceD.addEventListener("click", function () {
+  choiceDclick === true
+  userAnswer = "d"
+  console.log("user has selected " + userAnswer)
+})
 
 if (choiceAclick === true) {
   userAnswer = "a"
@@ -170,6 +174,10 @@ if (choiceAclick === true) {
   userAnswer = "d"
 }
 
+let lastQuestionIndex = questionsList.length - 1;
+let runningQuestionsIndex = 0;
+
+
 // Call the questions
 function displayQuestion() {
   let q = questionsList[runningQuestionsIndex];
@@ -178,36 +186,42 @@ function displayQuestion() {
   choiceB.textContent = q.b;
   choiceC.textContent = q.c;
   choiceD.textContent = q.d;
-          }
+}
 
-var rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
 
+
+let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
 
 // Update the score depending if the user answer is the same as correct answer
- let score = 0;
+let score = 0;
 function checkAnswer() {
-    console.log("The correct answer is " + rightAnswer)
-    if (rightAnswer === userAnswer) {
-    score++; 
-        console.log("The user has selected the correct")
-          } else if (rightAnswer !== userAnswer) {
-      console.log("The user has selected the incorrect answer")
+  console.log("The correct answer is " + rightAnswer)
+  if (rightAnswer === userAnswer) {
+    score++;
+            console.log("The user has selected the correct")
+  } else if (rightAnswer !== userAnswer) {
+    console.log("The user has selected the incorrect answer")
     score--;
-          }
+      }
+      
+  console.log("The running question index is " + runningQuestionsIndex)
 
-    console.log("The running question index is " + runningQuestionsIndex)
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
-      } 
-if (runningQuestionsIndex === lastQuestionIndex) {
-    console.log("quiz has finished")
-    }
+  }
 
-
-console.log("The current score is " + score);
-CurrentScore.innerHTML = score;
+  if (runningQuestionsIndex === lastQuestionIndex) {
+    console.log("quiz has finished");
+    return window.location.assign("/end.html");  
+  }
+  console.log("The current score is " + score);
+  CurrentScore.innerHTML = score;  
 }
+
+
+ 
+
 
 // 1. The user presses start quiz
 //  a. The timer begins to count down from 100
@@ -222,6 +236,7 @@ CurrentScore.innerHTML = score;
 //  b. User enters their name into the score board and press submit
 // 6. Score Board is shown
 // 7. Try again or show scoreboard
+// 8. Score board shows all the scores in the local storage and orders them. Remember local storage all stores as strings 
 
 // To do:
 // Build questions
@@ -234,3 +249,4 @@ CurrentScore.innerHTML = score;
 // AND two comes off the timer.
 // When the questions run out, the high score is returned and the
 // form is returned.
+// 
