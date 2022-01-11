@@ -10,7 +10,7 @@
 
     <title>Finished</title>
 </head>
-<body>
+
     
     <body>
         <!-- Top bar -->
@@ -28,13 +28,18 @@
             <div class="question">
               <h2 id="title"> You have finished</h2>
             </div>
+
+            <h3 id="finalScore"></h3>
       
             
           <form id = "submit-score-form">
           <label for="name"> Name: </label> <br>
           <input id="name" name="name" type="text">
-          <input type="submit"> 
+          <input type="submit" class="button" id="saveScoreBttn" onclick="saveScore(event)"> 
         </form>
+
+        <button type="submit" class="btn" id="play-again"> Play again</button>
+        
       
                   
                      
@@ -43,7 +48,7 @@
       
         <!-- Footer -->
         <footer>Made by JG</footer>
-      </body>
+     
       
       <script src="/assets/end.js"></script>
       

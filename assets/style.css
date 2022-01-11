@@ -8,21 +8,31 @@
   --grey: #929aa2;
   --dark: #1d2625;
   --orange: #b7673c;
+  font-size: 62.5%;
 }
 
-.options-box {
-  visibility: hidden;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+h1,
+.high-score {
+  font-size: 5.4rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
 
 #correct-result,
 #incorrect-result {
   visibility: hidden;
 }
 
-.timer {
-    display: flex;
-    float: right;
-}
+
 
 .invisible {
   visibility: hidden;
@@ -32,65 +42,83 @@
   visibility: visible;
 }
 
-.option { 
-    /* visibility: hidden; */ 
+  /* form */
+  form {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    } 
+    align-items: center;
+  }
+  
+  /* utilities  */ 
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    max-width: 80rem;
+    margin: auto;
+  }
 
-.instructions,
-h2 {
+  nav,
+  footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
+  .container * > {
+  width: 100%;  
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+.justify-centre {
+  justify-content: center;
+}
+
+.text-centre {
   text-align: center;
 }
 
-nav,
-footer {
-  background-color: var(--dark);
+/* buttons */
+.btn {
+  font: size 1.8rem; 
+  padding: 1rem 0;
+  width: 20rem;
+  text-align: center;
+  border: 0.1rem solid black;
+  margin-bottom: 1rem;
+  text-decoration: none;
   color: white;
-  padding: 10px;
-  margin-bottom: 5px;
+  background-color: var(--grey);
 }
 
-.outer-box {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 1%;
+
+
+.btn:hover,
+.choice-box:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 var(--orange);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
 }
 
-.question,
-.options-box,
-{
-  position: relative;
+.choice-box {
   display: flex;
-  margin: auto;
-  justify-content: center;
-  padding: 1%;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font-size: 1.8rem;
+  border: 0.1rem solid black;
+  background-color: white;
 }
-
-.options-box {
-    position: relative;
-}
-
-.options-box {
-    display: flex;
-    align-items: center;
-}
-
-button
- {
-  position: relative;
-  display: flex;
-  margin: auto;
-  margin-top: 2%;
-}
-
-ul {
-     float: left;
-  }
-
-
-#submit-score-form {
-  
-}
-

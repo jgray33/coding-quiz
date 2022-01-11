@@ -1,14 +1,12 @@
-console.log("is this connected");
+console.log("js connected");
 
-const submitBttn = document.getElementById("submit-button");
 let choiceA = document.getElementById("op1");
 let choiceB = document.getElementById("op2");
 let choiceC = document.getElementById("op3");
 let choiceD = document.getElementById("op4");
-let title = document.getElementById("title");
-let options = document.getElementById("all-options")
-var timerEl = document.querySelector(".timer");
-let questionInstr = document.getElementById("questionInstr");
+let options = document.getElementById("choice-box")
+let timerEl = document.querySelector(".timer");
+let questionTitle = document.getElementById("title")
 let CurrentScore = document.getElementById("score");
 let correctResult = document.getElementById("correct-result");
 let incorrectResult = document.getElementById("incorrect-result")
@@ -17,16 +15,29 @@ let incorrectResult = document.getElementById("incorrect-result")
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 console.log(highScores)
 
+// Display correct 
+const displayCorrectResult = () => correctResult.classList.add("visible")
+
+// Display incorrect 
+const displayIncorrectResult = () => incorrectResult.classList.add("visible")
+
+
+function startQuiz () {
+  setTimer();
+  displayQuestion();
+}
+window.onload = startQuiz
+
 const correctBonus = 10;
 const maxQuestions = 6
 
 // Timer starts at 60
 
-var secondsLeft = 60;
-
 // Set timer function
+let secondsLeft = 60;
+
 function setTimer() {
-  var timerInterval = setInterval(function () {
+  let timerInterval = setInterval(function () {
     secondsLeft--;
     timerEl.textContent = secondsLeft;
 
@@ -38,42 +49,10 @@ function setTimer() {
   }, 1000);
 }
 
-// When start button is clicked, the timer will start
-submitBttn.addEventListener("click", () => {
-  setTimer();
-});
 
 function quizFinished() {
   console.log("The quiz has finished")
 }
-
-// Removes the start button
-const changeBttn = () => submitBttn.classList.add("invisible")
-
-// Removes the title
-const removeTitle = () => title.classList.add("invisible")
-
-// Displays the options
-const displayOptionsBox = () => options.classList.add("visible")
-
-// Removes the options box
-const removeOptionsBox = () => options.classList.add("invisible")
-
-// Display correct 
-const displayCorrectResult = () => correctResult.classList.add("visible")
-
-// Display incorrect 
-const displayIncorrectResult = () => incorrectResult.classList.add("visible")
-
-// When the start button is clicked, the first question appears, 
-// the title is removed and the start button is removed
-// And the options appear
-submitBttn.addEventListener("click", () => {
-  displayQuestion();
-  removeTitle();
-  changeBttn();
-  displayOptionsBox();
-        });
 
 
 // List of questions
@@ -181,15 +160,12 @@ let runningQuestionsIndex = 0;
 // Call the questions
 function displayQuestion() {
   let q = questionsList[runningQuestionsIndex];
-  questionInstr.innerHTML = "<p>" + q.question + "</p>";
+  questionTitle.innerHTML = "<p>" + q.question + "</p>";
   choiceA.textContent = q.a;
   choiceB.textContent = q.b;
   choiceC.textContent = q.c;
   choiceD.textContent = q.d;
 }
-
-
-
 let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
 
 // Update the score depending if the user answer is the same as correct answer
@@ -197,8 +173,8 @@ let score = 0;
 function checkAnswer() {
   console.log("The correct answer is " + rightAnswer)
   if (rightAnswer === userAnswer) {
-    score++;
-            console.log("The user has selected the correct")
+    score + correctBonus;
+            console.log("The user has selected the correct answer")
   } else if (rightAnswer !== userAnswer) {
     console.log("The user has selected the incorrect answer")
     score--;
@@ -213,6 +189,7 @@ function checkAnswer() {
 
   if (runningQuestionsIndex === lastQuestionIndex) {
     console.log("quiz has finished");
+    localStorage.setItem("mostRecentScore", score)
     return window.location.assign("/end.html");  
   }
   console.log("The current score is " + score);
