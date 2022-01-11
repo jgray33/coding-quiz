@@ -149,8 +149,6 @@ choiceD.addEventListener("click", function () {
 
 function processResponse() {
   console.log("user has selected '" + userAnswer + "'")
-
-
 }
 
 let lastQuestionIndex = questionsList.length - 1;
@@ -170,13 +168,17 @@ let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
 // Update the score depending if the user answer is the same as correct answer
 let score = 0;
 function checkAnswer() {
+  let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
   console.log("The correct answer is " + rightAnswer)
+  
   if (rightAnswer === userAnswer) {
-    score + correctBonus;
+    score++;
+
     console.log("The user has selected the correct answer")
   } else if (rightAnswer !== userAnswer) {
     console.log("The user has selected the incorrect answer: " + userAnswer)
     score--;
+    
   }
 
   console.log("The running question index is " + runningQuestionsIndex)
