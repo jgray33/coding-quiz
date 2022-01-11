@@ -22,7 +22,7 @@ const displayCorrectResult = () => correctResult.classList.add("visible")
 const displayIncorrectResult = () => incorrectResult.classList.add("visible")
 
 
-function startQuiz () {
+function startQuiz() {
   setTimer();
   displayQuestion();
 }
@@ -119,43 +119,42 @@ var choiceAclick = false
 choiceA.addEventListener("click", function () {
   choiceAclick === true
   userAnswer = "a"
-  console.log("user has selected " + userAnswer)
+  processResponse()
+  checkAnswer()
 })
 
 var choiceBclick = false
 choiceB.addEventListener("click", function () {
   choiceBclick === true
   userAnswer = "b"
-  console.log("user has selected " + userAnswer)
+  processResponse()
+  checkAnswer()
 })
 
 var choiceCclick = false
 choiceC.addEventListener("click", function () {
   choiceCclick === true
   userAnswer = "c"
-  console.log("user has selected " + userAnswer)
+  processResponse()
+  checkAnswer()
 })
 
 var choiceDclick = false
 choiceD.addEventListener("click", function () {
   choiceDclick === true
   userAnswer = "d"
-  console.log("user has selected " + userAnswer)
+  processResponse()
+  checkAnswer()
 })
 
-if (choiceAclick === true) {
-  userAnswer = "a"
-} else if (choiceBclick === true) {
-  userAnswer = "b"
-} else if (choiceCclick === true) {
-  userAnswer = "c"
-} else if (choiceDclick === true) {
-  userAnswer = "d"
+function processResponse() {
+  console.log("user has selected '" + userAnswer + "'")
+
+
 }
 
 let lastQuestionIndex = questionsList.length - 1;
 let runningQuestionsIndex = 0;
-
 
 // Call the questions
 function displayQuestion() {
@@ -174,12 +173,12 @@ function checkAnswer() {
   console.log("The correct answer is " + rightAnswer)
   if (rightAnswer === userAnswer) {
     score + correctBonus;
-            console.log("The user has selected the correct answer")
+    console.log("The user has selected the correct answer")
   } else if (rightAnswer !== userAnswer) {
-    console.log("The user has selected the incorrect answer")
+    console.log("The user has selected the incorrect answer: " + userAnswer)
     score--;
-      }
-      
+  }
+
   console.log("The running question index is " + runningQuestionsIndex)
 
   if (runningQuestionsIndex < lastQuestionIndex) {
@@ -190,14 +189,14 @@ function checkAnswer() {
   if (runningQuestionsIndex === lastQuestionIndex) {
     console.log("quiz has finished");
     localStorage.setItem("mostRecentScore", score)
-    return window.location.assign("/end.html");  
+    return window.location.assign("/end.html");
   }
   console.log("The current score is " + score);
-  CurrentScore.innerHTML = score;  
+  CurrentScore.innerHTML = score;
 }
 
 
- 
+
 
 
 // 1. The user presses start quiz
