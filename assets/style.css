@@ -11,21 +11,11 @@
   font-size: 62.5%;
 }
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
- }
-
-/* On all pages */
-nav,
-footer{
-  background-color: black;
-  color: white;
-  padding: 10px;
-  text-align: center;
- }
-
+}
 
 /*Start page styling */
 h1 {
@@ -54,41 +44,41 @@ p {
   visibility: visible;
 }
 
-  /* form */
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-    .container {
-      background-color: var(--lightblue);
-        width: 50vw;
-    height: 70vh;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    max-width: 80rem;
-    margin: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-     }
+/* form */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  background-color: var(--lightblue);
+  width: 50vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 
 /* All of the children inside of the container are 100% width of the container */
-  .container * > {
-  width: 100%;  
-  }
+.container * > {
+  width: 100%;
+}
 
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-  }
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
 
-  .flex-center {
-    justify-content: center;
-    align-items: center;
-  }
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
 
 .justify-centre {
   justify-content: center;
@@ -99,9 +89,10 @@ p {
 }
 
 /* buttons */
-.btn {
+.btn,
+#username {
   margin: auto;
-  font-size: 2rem; 
+  font-size: 2rem;
   padding: 1rem 0;
   width: 20rem;
   text-align: center;
@@ -110,6 +101,10 @@ p {
   color: black;
   background-color: var(--lightblue);
   font-weight: bold;
+}
+
+#username {
+  background-color: white;
 }
 
 .btn:hover,
@@ -129,14 +124,24 @@ p {
   font-weight: bold;
   padding: 1rem 0;
   padding-left: 1rem;
-  }
+}
 
-.quiz-box {
-   padding-right: 5rem;
+.quiz-box,
+#end-box {
+  padding-right: 5rem;
   padding-left: 5rem;
   padding-bottom: 5rem;
+  background-color: white;
+  
 }
 
 #title {
   font-size: 3rem;
 }
+
+#saveScoreBttn,
+#play-again {
+  border: none;
+}
+
+

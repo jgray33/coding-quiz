@@ -16,7 +16,7 @@ console.log(correctResult)
 window.onload = startQuiz
 
 function startQuiz() {
-  // setTimer();
+  setTimer();
   displayQuestion();
   }
 

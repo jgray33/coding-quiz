@@ -12,47 +12,28 @@
   <title>Finished</title>
 </head>
 
-
 <body>
-  <!-- Top bar -->
-  <nav>
-    <h1>Coding Quiz</h1>
-  </nav>
-
-  <!-- High score and timer -->
-
-  <!-- Quiz box -->
-  <section id="container">
-    <div class="flex-centre flex-column">
-
-      <!-- Finished -->
-      <div class="question">
-        <h2 id="title"> You have finished</h2>
+  <!-- Box that all components go in -->
+  <section class="container">
+    <div class="flex-centre flex-column" id="end-box">
+      <!-- Score -->
+      <div id =" score-box" class="question">
+        <h2 id="title"> Your score is:</h2>
+        <h2 id="finalScore"></h2>
       </div>
-
-      <h3 id="finalScore"></h3>
-
-      <form>
-        <input type="text" name="username" id="username" placeholder="username">
+            <form>
+              <p> Enter your name</p>
+        <input type="text" name="username" id="username" placeholder="Name">
         <button type="submit" class="btn" id="saveScoreBttn" onclick="saveHighScore(event)">Save</button>
       </form>
 
       <button id="play-again" class="btn">Play again</button>
-    </form>
+
+      </form>
     </div>
- 
-
-
   </section>
 
-  <!-- Footer -->
-  <footer>Made by JG</footer>
-
-
-  <script src="/assets/end.js"></script>
-
-
-
 </body>
+<script src="/assets/end.js"></script>
 
 </html>
