@@ -10,29 +10,26 @@ let questionTitle = document.getElementById("title")
 let CurrentScore = document.getElementById("score");
 let correctResult = document.getElementById("correct-result");
 let incorrectResult = document.getElementById("incorrect-result")
+console.log(correctResult)
 
 
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-console.log(highScores)
 
 // Display correct 
-const displayCorrectResult = () => correctResult.classList.add("visible")
+const displayCorrectResult = () => correctResult.textContent = "Correct"
 
 // Display incorrect 
-const displayIncorrectResult = () => incorrectResult.classList.add("visible")
+const displayIncorrectResult = () => incorrectResult.textContent= "Incorrect"
 
+// Loads the timer and displays the question when the page loads
+window.onload = startQuiz
 
 function startQuiz() {
   setTimer();
   displayQuestion();
-}
-window.onload = startQuiz
+  }
 
-const correctBonus = 10;
-const maxQuestions = 6
 
 // Timer starts at 60
-
 // Set timer function
 let secondsLeft = 60;
 
@@ -49,7 +46,7 @@ function setTimer() {
   }, 1000);
 }
 
-
+// Test that quiz finishes correctly 
 function quizFinished() {
   console.log("The quiz has finished")
 }
@@ -154,6 +151,9 @@ function processResponse() {
 let lastQuestionIndex = questionsList.length - 1;
 let runningQuestionsIndex = 0;
 
+const correctBonus = 10;
+const maxQuestions = 6
+
 // Call the questions
 function displayQuestion() {
   let q = questionsList[runningQuestionsIndex];
@@ -163,6 +163,8 @@ function displayQuestion() {
   choiceC.textContent = q.c;
   choiceD.textContent = q.d;
 }
+
+// Allocates rightAnswer to the answer of each of the questions. 
 let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
 
 // Update the score depending if the user answer is the same as correct answer
@@ -172,22 +174,24 @@ function checkAnswer() {
   console.log("The correct answer is " + rightAnswer)
   
   if (rightAnswer === userAnswer) {
-    score++;
-
+   score++;
+   displayCorrectResult();
     console.log("The user has selected the correct answer")
   } else if (rightAnswer !== userAnswer) {
     console.log("The user has selected the incorrect answer: " + userAnswer)
     score--;
+    displayIncorrectResult();
     
   }
 
   console.log("The running question index is " + runningQuestionsIndex)
-
+// Keep the questions running until get to the last question
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
   }
 
+  // When get to the last question, go to the end of the quiz
   if (runningQuestionsIndex === lastQuestionIndex) {
     console.log("quiz has finished");
     localStorage.setItem("mostRecentScore", score)
@@ -205,10 +209,9 @@ function checkAnswer() {
 //  a. The timer begins to count down from 100
 //  b. The questions appear
 // 2. The user selects their answer
-//  a. If the correct answer is chosen, "correct" will appear and timer will stay the same
-//  b. If the wrong answer is chosen, "incorrect" will appear and timer will decrease by two
-//  c. Next question button appears
-// 3. User selects next questions and function 1b - 2c is repeated until the timer runs our OR the questions end
+//  a. If the correct answer is chosen, "correct" will appear and score will increase 
+//  b. If the wrong answer is chosen, "incorrect" will appear and score will decrease 
+//  // 3. User selects next questions and function 1b - 2c is repeated until the timer runs our OR the questions end
 // 4. Quiz finishes
 //  a. Score is shown
 //  b. User enters their name into the score board and press submit

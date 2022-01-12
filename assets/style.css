@@ -27,13 +27,6 @@ h2 {
 }
 
 
-#correct-result,
-#incorrect-result {
-  visibility: hidden;
-}
-
-
-
 .invisible {
   visibility: hidden;
 }
