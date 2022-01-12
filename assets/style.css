@@ -135,13 +135,21 @@ form {
   
 }
 
-#title {
+#title,
+#finalScore {
   font-size: 3rem;
 }
 
 #saveScoreBttn,
-#play-again {
+#play-again,
+#viewScoreBoardBttn {
   border: none;
+}
+
+.current-score {
+  display: flex;
+  flex-direction: row;
+  
 }
 
 
