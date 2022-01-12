@@ -4,7 +4,7 @@
 
 :root {
   --teal: #3a5154;
-  --cream: #b9b0b2;
+  --lightblue: #a9bebc;
   --grey: #929aa2;
   --dark: #1d2625;
   --orange: #b7673c;
@@ -15,17 +15,36 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+ }
+
+/* On all pages */
+nav,
+footer{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  text-align: center;
+ }
+
+
+/*Start page styling */
+h1 {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 5rem;
 }
 
-h1,
-.high-score {
-  font-size: 5.4rem;
+h2,
+p {
+  font-size: 2rem;
+  text-align: center;
+  padding: 5%;
 }
 
-h2 {
-  font-size: 4.2rem;
+#home {
+  background-color: white;
 }
-
 
 .invisible {
   visibility: hidden;
@@ -43,25 +62,20 @@ h2 {
     align-items: center;
   }
   
-  /* utilities  */ 
-  .container {
-    width: 100vw;
-    height: 100vh;
+    .container {
+      background-color: var(--lightblue);
+        width: 50vw;
+    height: 70vh;
     display: flex;
     justify-content:center;
     align-items: center;
     max-width: 80rem;
     margin: auto;
-  }
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+     }
 
-  nav,
-  footer {
-    background-color: var(--dark);
-    color: white;
-    padding: 10px;
-    margin-bottom: 5px;
-  }
-
+/* All of the children inside of the container are 100% width of the container */
   .container * > {
   width: 100%;  
   }
@@ -86,23 +100,21 @@ h2 {
 
 /* buttons */
 .btn {
-  font: size 1.8rem; 
+  margin: auto;
+  font-size: 2rem; 
   padding: 1rem 0;
   width: 20rem;
   text-align: center;
-  border: 0.1rem solid black;
   margin-bottom: 1rem;
   text-decoration: none;
-  color: white;
-  background-color: var(--grey);
+  color: black;
+  background-color: var(--lightblue);
+  font-weight: bold;
 }
-
-
 
 .btn:hover,
 .choice-box:hover {
   cursor: pointer;
-  box-shadow: 0 0.4rem 1.4rem 0 var(--orange);
   transform: translateY(-0.1rem);
   transition: transform 150ms;
 }

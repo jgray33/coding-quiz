@@ -4,33 +4,22 @@ const finalScore = document.getElementById("finalScore")
 const mostRecentScore = localStorage.getItem("mostRecentScore")
 const playAgain = document.getElementById("play-again")
 let userInitials;
-
 let scoreArr = []
-// Convert the local storage into an array
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-console.log(highScores)
+let maxScores = []
+
+const highScores = JSON.parse(localStorage.getItem("highScores"))
 
 // Brings the user's score onto this page
 finalScore.innerText = mostRecentScore
 
-// // Recognises typing in the username input
-// userName.addEventListener("keyup", () => {
-//         })
 
-
-
-// When press on save button, score is saved
+// Prevents the form refreshing 
 saveHighScore = (e) => {
     console.log("clicked save");
     e.preventDefault();
 }
 
-// Play again links back to start page 
-playAgain.addEventListener("click", () => {
-    return window.location.assign("/index.html")
-})
-
-
+// 
 saveScoreBttn.addEventListener("click", () => {
     userInitials = userName.value
     const score = {
@@ -41,6 +30,17 @@ saveScoreBttn.addEventListener("click", () => {
       scoreArr.push(score)
       localStorage.setItem("highScores", JSON.stringify(scoreArr))
 })
-// for loop of scorrArr < dispaly that .
 
 
+// Sort the array from highest to lowest
+highScores.sort((a,b) => {
+    return b.score -a.score;
+    })
+
+highScores.splice(5)
+localStorage.setItem("highScores", JSON.stringify(highScores));
+
+// Play again links back to start page 
+playAgain.addEventListener("click", () => {
+    return window.location.assign("/index.html")
+})
