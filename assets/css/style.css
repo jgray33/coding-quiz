@@ -127,7 +127,8 @@ form {
 }
 
 .quiz-box,
-#end-box {
+#end-box,
+#highscore {
   padding-right: 5rem;
   padding-left: 5rem;
   padding-bottom: 5rem;
@@ -138,6 +139,10 @@ form {
 #title,
 #finalScore {
   font-size: 3rem;
+}
+
+#highscoresList {
+  list-style: none;
 }
 
 #saveScoreBttn,

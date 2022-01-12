@@ -22,6 +22,7 @@ function startQuiz() {
 // Timer starts at 60
 // Set timer function
 let secondsLeft = 60;
+let secondElapsed = 0
 
 function setTimer() {
   let timerInterval = setInterval(function () {
@@ -31,7 +32,7 @@ function setTimer() {
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       console.log("Timer has ended");
-      return window.location.assign("/end.html");
+      return window.location.assign("/quiz-end-page.html");
     }
   }, 1000);
 }
@@ -170,48 +171,21 @@ function checkAnswer() {
     score -= 2;
     i++;
     showIncorrect();
+
   }
 
-  console.log("The running question index is " + runningQuestionsIndex);
-  // Keep the questions running until get to the last question
+    // Keep the questions running until get to the last question
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
   }
 
   // When get to the last question, go to the end of the quiz
+  // Set the score in the local storage
   if (runningQuestionsIndex === lastQuestionIndex) {
-    console.log("quiz has finished");
-    localStorage.setItem("mostRecentScore", score);
-    return window.location.assign("/end.html");
+       localStorage.setItem("mostRecentScore", score);
+    return window.location.assign("/quiz-end-page.html");
   }
-  console.log("The current score is " + score);
+
   CurrentScore.innerHTML = score;
 }
-
-// 1. The user presses start quiz
-//  a. The timer begins to count down from 100
-//  b. The questions appear
-// 2. The user selects their answer
-//  a. If the correct answer is chosen, "correct" will appear and score will increase
-//  b. If the wrong answer is chosen, "incorrect" will appear and score will decrease
-//  // 3. User selects next questions and function 1b - 2c is repeated until the timer runs our OR the questions end
-// 4. Quiz finishes
-//  a. Score is shown
-//  b. User enters their name into the score board and press submit
-// 6. Score Board is shown
-// 7. Try again or show scoreboard
-// 8. Score board shows all the scores in the local storage and orders them. Remember local storage all stores as strings
-
-// To do:
-// Build questions
-// Initial HTML should be start, instructions and start quiz button
-// On click of start button, questions appear (Hidden to start with and
-// javascript visible on click?)
-// Create timer that counts down from 100
-// Function on questions: If answer right, textContent "Correct" and
-// visible? If answer wrong, textContent "incorrect" turns visible,
-// AND two comes off the timer.
-// When the questions run out, the high score is returned and the
-// form is returned.
-//
