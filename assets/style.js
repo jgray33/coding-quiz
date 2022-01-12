@@ -12,19 +12,11 @@ let correctResult = document.getElementById("correct-result");
 let incorrectResult = document.getElementById("incorrect-result")
 console.log(correctResult)
 
-
-
-// Display correct 
-const displayCorrectResult = () => correctResult.textContent = "Correct"
-
-// Display incorrect 
-const displayIncorrectResult = () => incorrectResult.textContent= "Incorrect"
-
 // Loads the timer and displays the question when the page loads
 window.onload = startQuiz
 
 function startQuiz() {
-  setTimer();
+  // setTimer();
   displayQuestion();
   }
 
@@ -179,14 +171,12 @@ function checkAnswer() {
   if (rightAnswer === userAnswer) {
    score++;
    i++;
-   displayCorrectResult();
     console.log("The user has selected the correct answer")
   } else {
     console.log("The user has selected the incorrect answer: " + userAnswer)
     score--;
     i++;
-    // displayIncorrectResult();
-    
+      
   }
 
   console.log("The running question index is " + runningQuestionsIndex)

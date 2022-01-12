@@ -13,53 +13,48 @@
 </head>
 
 <body>
-  <!-- Top bar -->
-  <nav>
-    <h1>Coding Quiz</h1>
 
-    <!-- High score and timer -->
-    <div class="high-score">
-      <p id="score"> Your score: </p>
-      <p></p>
-      <!-- Timer -->
-      <p class="timer">Timer</p>
+  <div class="container">
+    <div id="home" class="flex-centre flex-column">
+
+      <!-- Score and timer -->
+      <div class="current-score">
+        <p> Your score:</p>
+        <p id="score"> 0 </p>
+        <p></p>
+        <!-- Timer -->
+        <p class="timer">Timer</p>
+      </div>
+
+      <!-- Quiz box -->
+      <div class="quiz-box" class="justify-centre flex-column">
+
+        <!-- Questions -->
+        <h1 id="title"></h1>
+
+        <!-- Options  -->
+        <div class="all-options-box"> 
+        <div class="choice-box">
+          <a class="option" id="op1"> Option 1 </a>
+        </div>
+
+        <div class="choice-box">
+          <a class="option" id="op2"> Option 2 </a>
+        </div>
+
+        <div class="choice-box">
+          <a class="option" id="op3"> Option 3 </a>
+        </div>
+
+        <div class="choice-box">
+          <a class="option" id="op4"> Option 4 </a>
+        </div>
+
+      </div>
     </div>
-  </nav>
-
-  <section class="container">
-    
-
-    <!-- Quiz box -->
-    <div class="quiz-box" class="justify-centre flex-column">
-
-      <!-- Questions -->
-      <h2 id="title"></h2>
+  </div>
 
 
-      <!-- Options  -->
-      <div class="choice-box">
-        <a class="option" id="op1"> Option 1 </a>
-      </div>
-      <div class="choice-box">
-        <a class="option" id="op2"> Option 2 </a>
-      </div>
-      <div class="choice-box">
-        <a class="option" id="op3"> Option 3 </a>
-      </div>
-      <div class="choice-box">
-        <a class="option" id="op4"> Option 4 </a>
-      </div>
-      
-
-      <div id="result-container">
-        <div class="results" id="correct-result">Result</div>
-             </div>
-
-  </section>
-
-
-  <!-- Footer -->
-  <footer>Made by JG</footer>
 </body>
 
 <script src="assets/style.js"></script>

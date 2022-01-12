@@ -121,9 +121,22 @@ p {
 
 .choice-box {
   display: flex;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   width: 100%;
   font-size: 1.8rem;
-  border: 0.1rem solid black;
-  background-color: white;
+  margin-top: 1rem;
+  background-color: var(--lightblue);
+  font-weight: bold;
+  padding: 1rem 0;
+  padding-left: 1rem;
+  }
+
+.quiz-box {
+   padding-right: 5rem;
+  padding-left: 5rem;
+  padding-bottom: 5rem;
+}
+
+#title {
+  font-size: 3rem;
 }
