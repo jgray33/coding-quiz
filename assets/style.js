@@ -111,6 +111,7 @@ let questionsList = [
 
 // Identifies which option the user has clicked
 let userAnswer = ""
+let i = 0
 
 var choiceAclick = false
 choiceA.addEventListener("click", function () {
@@ -144,6 +145,7 @@ choiceD.addEventListener("click", function () {
   checkAnswer()
 })
 
+
 function processResponse() {
   console.log("user has selected '" + userAnswer + "'")
 }
@@ -157,12 +159,13 @@ const maxQuestions = 6
 // Call the questions
 function displayQuestion() {
   let q = questionsList[runningQuestionsIndex];
-  questionTitle.innerHTML = "<p>" + q.question + "</p>";
-  choiceA.textContent = q.a;
-  choiceB.textContent = q.b;
-  choiceC.textContent = q.c;
-  choiceD.textContent = q.d;
-}
+  
+    questionTitle.textContent = questionsList[i].question;
+    choiceA.textContent = questionsList[i].a;
+    choiceB.textContent = questionsList[i].b;
+    choiceC.textContent = questionsList[i].c;
+    choiceD.textContent = questionsList[i].d;
+           }
 
 // Allocates rightAnswer to the answer of each of the questions. 
 let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer
@@ -175,12 +178,14 @@ function checkAnswer() {
   
   if (rightAnswer === userAnswer) {
    score++;
+   i++;
    displayCorrectResult();
     console.log("The user has selected the correct answer")
-  } else if (rightAnswer !== userAnswer) {
+  } else {
     console.log("The user has selected the incorrect answer: " + userAnswer)
     score--;
-    displayIncorrectResult();
+    i++;
+    // displayIncorrectResult();
     
   }
 
