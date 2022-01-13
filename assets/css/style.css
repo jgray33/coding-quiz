@@ -109,8 +109,8 @@
 h1 {
   margin-top: 1rem;
   text-align: center;
-  font-size: 4.5rem;
-  margin-bottom: 5rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 h2,
@@ -123,7 +123,6 @@ p {
 /********************Questions page styling ********************/
 .choice-box {
   display: flex;
-  margin-bottom: 1rem;
   width: 100%;
   font-size: 1.3rem;
   margin-top: 1rem;
@@ -147,7 +146,7 @@ form {
 
 #title,
 #finalScore {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 #highscoresList {

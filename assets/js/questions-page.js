@@ -148,10 +148,12 @@ function displayQuestion() {
 
 function showCorrect() {
   resultBox.innerHTML = "Correct";
+  resultBox.style.color = "green"
 }
 
 function showIncorrect() {
   let showIncorrect = (resultBox.innerHTML = "Incorrect");
+  resultBox.style.color = "red"
 }
 
 // Identifies which option user has clicked ===========================
