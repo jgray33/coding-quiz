@@ -89,13 +89,15 @@ function setTimer() {
   let timerInterval = setInterval(function () {
     secondsLeft--;
     timerEl.textContent = secondsLeft;
-
     if (secondsLeft === 0) {
-      clearInterval(timerInterval);
-      console.log("Timer has ended");
-      return window.location.assign("/quiz-end-page.html");
+    clearInterval(timerInterval);
+    return window.location.assign("/quiz-end-page.html");
     }
   }, 1000);
+}
+
+function clock() {
+
 }
 
 let runningQuestionsIndex = 0; 
@@ -160,6 +162,7 @@ function checkAnswer() {
     showCorrect();
    } else {
     score -= 2;
+    secondsLeft -= 10;
     i++;
     showIncorrect();
   }
