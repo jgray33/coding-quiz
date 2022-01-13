@@ -1,3 +1,4 @@
+/********************Universal styling ********************/
 * {
   font-family: "lato";
 }
@@ -17,39 +18,9 @@
   padding: 0;
 }
 
-/*Start page styling */
-h1 {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 5rem;
-  margin-bottom: 5rem;
-}
-
-h2,
-p {
-  font-size: 2rem;
-  text-align: center;
-  padding: 5%;
-}
-
+/* container box in the "container" */
 #home {
   background-color: white;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-}
-
-/* form */
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .container {
@@ -65,10 +36,26 @@ form {
   margin-bottom: 2rem;
 }
 
-/* All of the children inside of the container are 100% width of the container */
 .container * > {
   width: 100%;
 }
+
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.quiz-box,
+#end-box,
+#highscore {
+  padding-right: 5rem;
+  padding-left: 5rem;
+  padding-bottom: 5rem;
+  background-color: white;
+  }
 
 .flex-column {
   display: flex;
@@ -88,7 +75,7 @@ form {
   text-align: center;
 }
 
-/* buttons */
+/********************Buttons********************/
 .btn,
 #username {
   margin: auto;
@@ -103,10 +90,6 @@ form {
   font-weight: bold;
 }
 
-#username {
-  background-color: white;
-}
-
 .btn:hover,
 .choice-box:hover {
   cursor: pointer;
@@ -114,6 +97,30 @@ form {
   transition: transform 150ms;
 }
 
+#saveScoreBttn,
+#play-again,
+#viewScoreBoardBttn,
+#playAgainBttn,
+#clearScores {
+  border: none;
+}
+
+/********************Start page styling ********************/
+h1 {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 5rem;
+}
+
+h2,
+p {
+  font-size: 2rem;
+  text-align: center;
+  padding: 5%;
+}
+
+/********************Questions page styling ********************/
 .choice-box {
   display: flex;
   margin-bottom: 1rem;
@@ -126,14 +133,16 @@ form {
   padding-left: 1rem;
 }
 
-.quiz-box,
-#end-box,
-#highscore {
-  padding-right: 5rem;
-  padding-left: 5rem;
-  padding-bottom: 5rem;
+/********************Quiz-end page styling ********************/
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#username {
   background-color: white;
-  
 }
 
 #title,
@@ -145,18 +154,20 @@ form {
   list-style: none;
 }
 
-#saveScoreBttn,
-#play-again,
-#viewScoreBoardBttn,
-#playAgainBttn,
-#clearScores {
-  border: none;
-}
-
 .current-score {
   display: flex;
   flex-direction: row;
   
 }
+
+
+
+
+
+
+
+
+
+
 
 
