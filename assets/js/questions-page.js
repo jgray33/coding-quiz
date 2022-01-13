@@ -20,17 +20,17 @@ const maxQuestions = 6;
 // Question list ===================================================
 let questionsList = [
   {
-    question: "Question 1",
+    question: "Inside which HTML element do we put the JavaScript",
     a: "<scripting>",
     b: "<js>",
     c: "<javascript>",
-    d: "Correct Answer",
+    d: "<script>",
     correctAnswer: "d",
   },
 
   {
-    question: "Question 2",
-    a: "Correct answer",
+    question: "Where is the correct place to insert a JavaScript?",
+    a: "<head> or <body>",
     b: "The <p> section",
     c: "The <body> section",
     d: "In the CSS worksheet",
@@ -38,8 +38,8 @@ let questionsList = [
   },
 
   {
-    question: "Question 3",
-    a: "Correct",
+    question: "How do you write 'Hello World' in an alert box?",
+    a: "alert('Hello World')",
     b: "msg('Hello World')",
     c: "msgBox('Hello World')",
     d: "alertBox('Hello World')",
@@ -47,29 +47,65 @@ let questionsList = [
   },
 
   {
-    question: "Question 4",
-    a: "Option 1",
-    b: "Option 2",
-    c: "Option 3",
-    d: "Correct",
-    correctAnswer: "d",
+    question: "How do you create a function in JavaScript?",
+    a: "function myFunction()",
+    b: "function = myFunction()",
+    c: "function:myFunction",
+    d: "create.myFunction",
+    correctAnswer: "a",
   },
 
   {
-    question: "Question 5",
-    a: "Option 1",
-    b: "Option 2",
-    c: "Correct",
-    d: "Option 4",
+    question: "What is the correct syntax for referring to an external scrips called 'xxx.js'?",
+    a: "<script src='xxx.js'>",
+    b: "<script name='xxx.js",
+    c: "<script href=xxx.js",
+    d: "source.js",
+    correctAnswer: "a",
+  },
+
+  {
+    question: "How do you call a function?",
+    a: "call myFunction",
+    b: "Come here function",
+    c: "myFunction()",
+    d: "call Function",
     correctAnswer: "c",
   },
 
   {
-    question: "Question 6",
-    a: "Option 1",
-    b: "Correct",
-    c: "Option 3",
-    d: "Option 4",
+    question: "How do you write an IF statement in Javascript?",
+    a: "if i=5",
+    b: "if i==5 then",
+    c: "if i",
+    d: "if (i==5)",
+    correctAnswer: "d",
+  },
+
+  {
+    question: "How does an WHILE loop start?",
+    a: "start: while loop",
+    b: "while (i <= 20)",
+    c: "while (i <=10; i++)",
+    d: "while i = 10",
+    correctAnswer: "c",
+  },
+
+  {
+    question: "How does a FOR loop start?",
+    a: "start: for loop",
+    b: "for (i <= 20; i++)",
+    c: "for (i = 0; i<=5; i++)",
+    d: "for i = 10",
+    correctAnswer: "c",
+  },
+
+  {
+    question: "How do you add a comment in JavaScript?",
+    a: "Comment:",
+    b: "<!--This is a comment-->",
+    c: "//This is a comment",
+    d: "C",
     correctAnswer: "b",
   },
 ];
@@ -155,11 +191,11 @@ let score = 0;
 function checkAnswer() {
   let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer;
   if (rightAnswer === userAnswer) {
-    score += 5;
+    score += 10;
     i++;
     showCorrect();
   } else {
-    score -= 2;
+    score -= 5;
     secondsLeft -= 10;
     i++;
     showIncorrect();
