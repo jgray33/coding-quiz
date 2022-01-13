@@ -194,8 +194,8 @@ function checkAnswer() {
     i++;
     showCorrect();
   } else {
-    score -= 5;
-    secondsLeft -= 10;
+    score -= 1;
+    secondsLeft -= 3;
     i++;
     showIncorrect();
   }
@@ -213,8 +213,11 @@ function checkAnswer() {
     endQuiz();
   }
   CurrentScore.innerHTML = score;
+  localStorage.setItem("runningScore", score)  
 }
 
+
 function endQuiz() {
+  console.log(score)
   return window.location.assign("/quiz-end-page.html");
-  }
+    }

@@ -2,7 +2,7 @@
 const userName = document.getElementById("username");
 const saveScoreBttn = document.getElementById("saveScoreBttn");
 const finalScore = document.getElementById("finalScore");
-const mostRecentScore = localStorage.getItem("mostRecentScore");
+const quizScore = localStorage.getItem("runningScore")
 const playAgain = document.getElementById("play-again");
 const viewScoreBoard = document.getElementById("viewScoreBoardBttn");
 
@@ -12,8 +12,12 @@ let userInitials;
 let maxScores = 5;
 console.log(highScores)
 
+
+console.log(quizScore)
+
+
 // Brings the user's score onto this page
-finalScore.innerText = mostRecentScore;
+finalScore.innerText = quizScore;
 
 // Saves the score into local storage ===================================================
 // First prevents the form refreshing
@@ -22,7 +26,7 @@ saveHighScore = (e) => {
   e.preventDefault();
   const userInitials = userName.value;
   const NewScore = {
-    score: mostRecentScore,
+    score: quizScore,
     name: userInitials,
   };
   highScores.push(NewScore);
