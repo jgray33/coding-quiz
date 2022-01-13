@@ -25,6 +25,7 @@ Click [here](https://jgray33.github.io/coding-quiz/) to go to my finished projec
 
 Here is what the final project looks like:
 
+![final-screenshot](https://user-images.githubusercontent.com/95051960/149415701-e36a82f0-9dc4-4528-adaf-a2fe042c6fcc.png)
 
 
 
