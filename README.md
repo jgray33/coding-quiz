@@ -25,7 +25,7 @@ Click [here](https://jgray33.github.io/coding-quiz/) to go to my finished projec
 
 Here is what the final project looks like:
 
-![Password Generator screenshot](https://user-images.githubusercontent.com/95051960/148681921-3332da1e-7e1c-4481-afab-356360440739.png)
+
 
 
 ## Links
