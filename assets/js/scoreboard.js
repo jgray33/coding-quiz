@@ -1,8 +1,7 @@
+// Elements ==========================================================
 const highScoresList = document.getElementById("highscoresList")
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const  playAgain = document.getElementById("playAgainBttn")
-
-console.log(highScores)
 
 // Takes high scores array and converts each array item into something new
 highScoresList.innerHTML = highScores
@@ -12,6 +11,7 @@ highScoresList.innerHTML = highScores
 })
 .join("")
 
+// ========================== Link added to play again
 playAgain.addEventListener("click", () => {
    return window.location.assign("/index.html")
 })

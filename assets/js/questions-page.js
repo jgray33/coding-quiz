@@ -9,10 +9,10 @@ let questionTitle = document.getElementById("title");
 let CurrentScore = document.getElementById("score");
 let correctResult = document.getElementById("correct-result");
 let incorrectResult = document.getElementById("incorrect-result");
-let resultBox = document.getElementById("results-box")
+let resultBox = document.getElementById("results-box");
 
 let secondsLeft = 60;
-let secondElapsed = 0
+let secondElapsed = 0;
 let userAnswer = "";
 const correctBonus = 10;
 const maxQuestions = 6;
@@ -74,7 +74,6 @@ let questionsList = [
   },
 ];
 
-
 // Start the quiz ===================================================
 // Set timer ========================================================
 // Display the questions ============================================
@@ -90,17 +89,17 @@ function setTimer() {
     secondsLeft--;
     timerEl.textContent = secondsLeft;
     if (secondsLeft === 0) {
-    clearInterval(timerInterval);
-    return window.location.assign("/quiz-end-page.html");
+      clearInterval(timerInterval);
+      endQuiz();
     }
   }, 1000);
 }
 
-function clock() {
-
+function endQuiz() {
+  return window.location.assign("/quiz-end-page.html");
 }
 
-let runningQuestionsIndex = 0; 
+let runningQuestionsIndex = 0;
 let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer;
 let lastQuestionIndex = questionsList.length - 1;
 let i = 0;
@@ -114,12 +113,12 @@ function displayQuestion() {
   choiceD.textContent = questionsList[i].d;
 }
 
-function showCorrect () {
-  resultBox.innerHTML = "Correct"
+function showCorrect() {
+  resultBox.innerHTML = "Correct";
 }
 
-function showIncorrect () {
-let showIncorrect = resultBox.innerHTML = "Incorrect"
+function showIncorrect() {
+  let showIncorrect = (resultBox.innerHTML = "Incorrect");
 }
 
 // Identifies which option user has clicked ===========================
@@ -151,7 +150,6 @@ choiceD.addEventListener("click", function () {
   checkAnswer();
 });
 
-
 // checks the answer ==============================================
 let score = 0;
 function checkAnswer() {
@@ -160,25 +158,24 @@ function checkAnswer() {
     score += 5;
     i++;
     showCorrect();
-   } else {
+  } else {
     score -= 2;
     secondsLeft -= 10;
     i++;
     showIncorrect();
   }
 
-// Keep the questions running until get to the last question ========
-// When get to the last question, go to the end of the quiz =========
-// Set the score in the local storage ================================
+  // Keep the questions running until get to the last question ========
+  // When get to the last question, go to the end of the quiz =========
+  // Set the score in the local storage ================================
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
   }
 
   if (runningQuestionsIndex === lastQuestionIndex) {
-       localStorage.setItem("mostRecentScore", score);
-    return window.location.assign("/quiz-end-page.html");
+    localStorage.setItem("mostRecentScore", score);
+    endQuiz();
   }
-
   CurrentScore.innerHTML = score;
 }

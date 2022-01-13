@@ -5,32 +5,31 @@ const finalScore = document.getElementById("finalScore");
 const mostRecentScore = localStorage.getItem("mostRecentScore");
 const playAgain = document.getElementById("play-again");
 const viewScoreBoard = document.getElementById("viewScoreBoardBttn");
-const highScores = JSON.parse(localStorage.getItem("highScores"));
+
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 let userInitials;
-let scoreArr = [];
-let maxScores = [];
+let maxScores = 5;
+console.log(highScores)
 
 // Brings the user's score onto this page
 finalScore.innerText = mostRecentScore;
 
-// Prevents the form refreshing
+// Saves the score into local storage ===================================================
+// First prevents the form refreshing
 saveHighScore = (e) => {
   console.log("clicked save");
   e.preventDefault();
-};
-
-
-// Saves the score into local storage ===================================================
-saveScoreBttn.addEventListener("click", () => {
-  userInitials = userName.value;
-  const score = {
+  const userInitials = userName.value;
+  const NewScore = {
     score: mostRecentScore,
     name: userInitials,
   };
-  scoreArr.push(score);
-  localStorage.setItem("highScores", JSON.stringify(scoreArr));
-});
+  highScores.push(NewScore);
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+  console.log(highScores)
+};
+
 
 // Sort the array from highest to lowest
 highScores.sort((a, b) => {
@@ -40,6 +39,7 @@ highScores.sort((a, b) => {
 // Only show the top five scores 
 highScores.splice(5);
 localStorage.setItem("highScores", JSON.stringify(highScores));
+console.log(highScores)
 
 // Buttons linked to other pages ===================================================
 playAgain.addEventListener("click", () => {
@@ -49,3 +49,5 @@ playAgain.addEventListener("click", () => {
 viewScoreBoard.addEventListener("click", () => {
   return window.location.assign("/scoreboard.html");
 });
+
+
