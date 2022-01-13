@@ -2,6 +2,8 @@
 const highScoresList = document.getElementById("highscoresList")
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const  playAgain = document.getElementById("playAgainBttn")
+const clearScoreBoard = document.getElementById("clearScores")
+
 
 // Takes high scores array and converts each array item into something new
 highScoresList.innerHTML = highScores
@@ -15,3 +17,10 @@ highScoresList.innerHTML = highScores
 playAgain.addEventListener("click", () => {
    return window.location.assign("/index.html")
 })
+
+
+clearScoreBoard.addEventListener("click", () => {
+   localStorage.clear();
+   highScoresList.innerHTML = ""
+ });
+ 

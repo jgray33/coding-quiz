@@ -28,6 +28,7 @@ saveHighScore = (e) => {
   highScores.push(NewScore);
   localStorage.setItem("highScores", JSON.stringify(highScores));
   console.log(highScores)
+  scoreBoard();
 };
 
 
@@ -45,6 +46,10 @@ console.log(highScores)
 playAgain.addEventListener("click", () => {
   return window.location.assign("/index.html");
 });
+
+function scoreBoard() {
+  return window.location.assign("/scoreboard.html");
+}
 
 viewScoreBoard.addEventListener("click", () => {
   return window.location.assign("/scoreboard.html");
