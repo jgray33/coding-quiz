@@ -1,4 +1,4 @@
-// Elements ===================================================
+// Elements ======================================================
 let choiceA = document.getElementById("op1");
 let choiceB = document.getElementById("op2");
 let choiceC = document.getElementById("op3");
@@ -127,13 +127,10 @@ function setTimer() {
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
       endQuiz();
-    }
+          }
   }, 1000);
 }
 
-function endQuiz() {
-  return window.location.assign("/assets/html/quiz-end-page.html");
-}
 
 let runningQuestionsIndex = 0;
 let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer;
@@ -186,7 +183,7 @@ choiceD.addEventListener("click", function () {
   checkAnswer();
 });
 
-// checks the answer ==============================================
+// checks the answer ==================================================
 let score = 0;
 function checkAnswer() {
   let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer;
@@ -203,7 +200,7 @@ function checkAnswer() {
 
   // Keep the questions running until get to the last question ========
   // When get to the last question, go to the end of the quiz =========
-  // Set the score in the local storage ================================
+  // Set the score in the local storage ===============================
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
@@ -215,3 +212,7 @@ function checkAnswer() {
   }
   CurrentScore.innerHTML = score;
 }
+
+function endQuiz() {
+  return window.location.assign("/assets/html/quiz-end-page.html");
+  }

@@ -31,7 +31,6 @@ saveHighScore = (e) => {
   scoreBoard();
 };
 
-
 // Sort the array from highest to lowest
 highScores.sort((a, b) => {
   return b.score - a.score;

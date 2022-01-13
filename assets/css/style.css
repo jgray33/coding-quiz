@@ -152,6 +152,9 @@ form {
 
 #highscoresList {
   list-style: none;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 .current-score {
