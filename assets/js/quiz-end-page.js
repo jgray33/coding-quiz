@@ -41,7 +41,7 @@ localStorage.setItem("highScores", JSON.stringify(highScores));
 
 // Play again links back to start page
 playAgain.addEventListener("click", () => {
-  return window.location.assign("/questions-page.html");
+  return window.location.assign("/index.html");
 });
 
 viewScoreBoard.addEventListener("click", () => {

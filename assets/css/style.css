@@ -147,7 +147,9 @@ form {
 
 #saveScoreBttn,
 #play-again,
-#viewScoreBoardBttn {
+#viewScoreBoardBttn,
+#playAgainBttn,
+#clearScores {
   border: none;
 }
 
