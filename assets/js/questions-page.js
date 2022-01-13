@@ -96,7 +96,7 @@ function setTimer() {
 }
 
 function endQuiz() {
-  return window.location.assign("/quiz-end-page.html");
+  return window.location.assign("/assets/html/quiz-end-page.html");
 }
 
 let runningQuestionsIndex = 0;
