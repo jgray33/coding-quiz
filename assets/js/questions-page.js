@@ -9,40 +9,15 @@ let questionTitle = document.getElementById("title");
 let CurrentScore = document.getElementById("score");
 let correctResult = document.getElementById("correct-result");
 let incorrectResult = document.getElementById("incorrect-result");
-console.log(correctResult);
+let resultBox = document.getElementById("results-box")
 
-// Loads the timer and displays the question when the page loads
-window.onload = startQuiz;
-
-function startQuiz() {
-  setTimer();
-  displayQuestion();
-}
-
-// Timer starts at 60
-// Set timer function
 let secondsLeft = 60;
 let secondElapsed = 0
+let userAnswer = "";
+const correctBonus = 10;
+const maxQuestions = 6;
 
-function setTimer() {
-  let timerInterval = setInterval(function () {
-    secondsLeft--;
-    timerEl.textContent = secondsLeft;
-
-    if (secondsLeft === 0) {
-      clearInterval(timerInterval);
-      console.log("Timer has ended");
-      return window.location.assign("/quiz-end-page.html");
-    }
-  }, 1000);
-}
-
-// Test that quiz finishes correctly
-function quizFinished() {
-  console.log("The quiz has finished");
-}
-
-// List of questions
+// Question list ===================================================
 let questionsList = [
   {
     question: "Question 1",
@@ -99,10 +74,53 @@ let questionsList = [
   },
 ];
 
-// Identifies which option the user has clicked
-let userAnswer = "";
+
+// Start the quiz ===================================================
+// Set timer ========================================================
+// Display the questions ============================================
+window.onload = startQuiz;
+
+function startQuiz() {
+  setTimer();
+  displayQuestion();
+}
+
+function setTimer() {
+  let timerInterval = setInterval(function () {
+    secondsLeft--;
+    timerEl.textContent = secondsLeft;
+
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      console.log("Timer has ended");
+      return window.location.assign("/quiz-end-page.html");
+    }
+  }, 1000);
+}
+
+let runningQuestionsIndex = 0; 
+let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer;
+let lastQuestionIndex = questionsList.length - 1;
 let i = 0;
 
+function displayQuestion() {
+  let q = questionsList[runningQuestionsIndex];
+  questionTitle.textContent = questionsList[i].question;
+  choiceA.textContent = questionsList[i].a;
+  choiceB.textContent = questionsList[i].b;
+  choiceC.textContent = questionsList[i].c;
+  choiceD.textContent = questionsList[i].d;
+}
+
+function showCorrect () {
+  resultBox.innerHTML = "Correct"
+}
+
+function showIncorrect () {
+let showIncorrect = resultBox.innerHTML = "Incorrect"
+}
+
+// Identifies which option user has clicked ===========================
 var choiceAclick = false;
 choiceA.addEventListener("click", function () {
   choiceAclick === true;
@@ -131,35 +149,8 @@ choiceD.addEventListener("click", function () {
   checkAnswer();
 });
 
-let lastQuestionIndex = questionsList.length - 1;
-let runningQuestionsIndex = 0;
 
-const correctBonus = 10;
-const maxQuestions = 6;
-
-// Call the questions
-function displayQuestion() {
-  let q = questionsList[runningQuestionsIndex];
-  questionTitle.textContent = questionsList[i].question;
-  choiceA.textContent = questionsList[i].a;
-  choiceB.textContent = questionsList[i].b;
-  choiceC.textContent = questionsList[i].c;
-  choiceD.textContent = questionsList[i].d;
-}
-
-// Allocates rightAnswer to the answer of each of the questions.
-let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer;
-
-const resultBox = document.getElementById("results-box")
-function showCorrect () {
-  resultBox.innerHTML = "Correct"
-}
-
-function showIncorrect () {
-let showIncorrect = resultBox.innerHTML = "Incorrect"
-}
-
-// Update the score depending if the user answer is the same as correct answer
+// checks the answer ==============================================
 let score = 0;
 function checkAnswer() {
   let rightAnswer = questionsList[runningQuestionsIndex].correctAnswer;
@@ -171,17 +162,16 @@ function checkAnswer() {
     score -= 2;
     i++;
     showIncorrect();
-
   }
 
-    // Keep the questions running until get to the last question
+// Keep the questions running until get to the last question ========
+// When get to the last question, go to the end of the quiz =========
+// Set the score in the local storage ================================
   if (runningQuestionsIndex < lastQuestionIndex) {
     runningQuestionsIndex++;
     displayQuestion();
   }
 
-  // When get to the last question, go to the end of the quiz
-  // Set the score in the local storage
   if (runningQuestionsIndex === lastQuestionIndex) {
        localStorage.setItem("mostRecentScore", score);
     return window.location.assign("/quiz-end-page.html");

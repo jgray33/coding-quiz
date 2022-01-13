@@ -17,21 +17,21 @@
   <section class="container">
     <div class="flex-centre flex-column" id="end-box">
       <!-- Score -->
-      <div id =" score-box" class="question">
+      <div id=" score-box" class="question">
         <h2 id="title"> Your score is:</h2>
         <h2 id="finalScore"></h2>
       </div>
-            <form>
-              <p> Enter your name</p>
+
+      <!-- Form to enter name and submit to score board-->
+      <form>
+        <p> Enter your name</p>
         <input type="text" name="username" id="username" placeholder="Name">
         <button type="submit" class="btn" id="saveScoreBttn" onclick="saveHighScore(event)">Save</button>
-        
-
       </form>
+
+      <!-- Buttons to play again or view scoreboard-->
       <button class="btn" id="viewScoreBoardBttn">Score Board</button>
       <button id="play-again" class="btn">Play again</button>
-
-      </form>
     </div>
   </section>
 
