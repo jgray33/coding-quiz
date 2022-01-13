@@ -47,11 +47,11 @@ playAgain.addEventListener("click", () => {
 });
 
 function scoreBoard() {
-  return window.location.assign("/html/scoreboard.html");
+  return window.location.assign("/scoreboard.html");
 }
 
 viewScoreBoard.addEventListener("click", () => {
-  return window.location.assign("/html/scoreboard.html");
+  return window.location.assign("/scoreboard.html");
 });
 
 
