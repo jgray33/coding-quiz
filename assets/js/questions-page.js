@@ -214,5 +214,5 @@ function checkAnswer() {
 }
 
 function endQuiz() {
-  return window.location.assign("/assets/html/quiz-end-page.html");
+  return window.location.assign("/html/quiz-end-page.html");
   }
