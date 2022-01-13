@@ -211,7 +211,7 @@ function checkAnswer() {
   if (runningQuestionsIndex === lastQuestionIndex) {
     localStorage.setItem("mostRecentScore", score);
     endQuiz();
-  }
+      }
   CurrentScore.innerHTML = score;
   localStorage.setItem("runningScore", score)  
 }
@@ -219,5 +219,5 @@ function checkAnswer() {
 
 function endQuiz() {
   console.log(score)
-  return window.location.assign("/quiz-end-page.html");
+  return window.location.href ="./quiz-end-page.html"
     }
