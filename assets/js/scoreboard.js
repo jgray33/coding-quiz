@@ -15,7 +15,7 @@ highScoresList.innerHTML = highScores
 
 // ========================== Link added to play again
 playAgain.addEventListener("click", () => {
-   return window.location.assign("/index.html")
+   return window.location.href ="./index.html"
 })
 
 
